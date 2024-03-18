@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+prepend_path $HOME/.local/bin

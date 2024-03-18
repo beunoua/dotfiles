@@ -1,0 +1,17 @@
+export XDG_CONFIG_HOME=$HOME/.config
+
+# Sources files in $HOME/.config/personal (except dircolors)
+export XDG_CONFIG_PERSONAL=$XDG_CONFIG_HOME/personal
+source $XDG_CONFIG_PERSONAL/env
+for i in $(find -L $XDG_CONFIG_PERSONAL ! -name 'dircolors' |sort); do
+    source $i
+done
+
+# Uses $HOME/.extra if it exists
+[[ -e $HOME/.extra ]] && source $HOME/.extra
+
+# Initialize starship prompt.
+source <(/usr/local/bin/starship init zsh --print-full-init)
+
+# Setup dircolors
+setup_dircolors
