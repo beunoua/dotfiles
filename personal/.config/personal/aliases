@@ -47,7 +47,7 @@ if [[ "Darwin" =~ `uname -s` ]]; then
     alias umount="diskutil eject"
     alias rstud="open -a RStudio"
     alias skim="open -a Skim"
-    alias du="ncdu -x -r --color dark --exclude .git"
+    alias du="ncdu -x --color dark --exclude .git"
     alias du1="\du -h -d1"
 # Linux specific aliases.
 else
