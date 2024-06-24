@@ -16,9 +16,7 @@ endif
 export XDG_CONFIG_HOME = $(HOME)/.config
 
 
-all: macos
-
-macos: check_stow xdg_config clean-stow
+all: check_stow xdg_config clean-stow
 	$(STOW) -t $(HOME) $(STOW_FOLDERS)
 
 
@@ -32,3 +30,4 @@ check_stow:
 	@[ $(STOW) ] || ( echo "ERROR: stow not found. Please install stow"; exit 1 )
 
 
+clean: clean-stow
