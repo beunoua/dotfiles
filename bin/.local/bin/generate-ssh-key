@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Usage function.
+usage() {
+    echo "usage: $0 [-e <email>] [-f <filename>]"
+    echo ""
+    echo "Generates an ssh key using ed25519."
+    echo ""
+    echo "Options:"
+    echo "-e <email>           :  The email to use in the comment of the key."
+    echo "-f <filename>        :  The filename to use for the key (will be wrote to ~/.ssh directory."
+    exit 1
+}
+
+# Default values.
+email="laurent@cnrs.fr"
+filename="mykey-$(date +%Y%m%d%H%M%S)"
+
+# Parse the options.
+while getopts "e:f:" opt; do
+    case $opt in
+        e)
+            email=$OPTARG
+            ;;
+        f)
+            filename=$OPTARG
+            ;;
+        *)
+            usage
+            ;;
+    esac
+done
+
+# Generate the key.
+ssh-keygen -t ed25519 -a 100 -C "$email" -f ~/.ssh/$filename
