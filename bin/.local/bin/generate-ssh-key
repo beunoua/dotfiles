@@ -1,26 +1,34 @@
 #!/bin/bash
 
 # Usage function.
-usage() {
-    echo "usage: $0 [-e <email>] [-f <filename>]"
+print_usage() {
+    echo "usage: $0 -c <comment> -f <filename>"
     echo ""
     echo "Generates an ssh key using ed25519."
     echo ""
     echo "Options:"
-    echo "-e <email>           :  The email to use in the comment of the key (actually the whole comment section)."
+    echo "-c <comment>         :  the comment section"
     echo "-f <filename>        :  The filename to use for the key (will be wrote to ~/.ssh directory."
+}
+
+usage() {
+    print_usage
     exit 1
 }
 
-# Default values.
-email="laurent@cnrs.fr"
-filename="mykey-$(date +%Y%m%d%H%M%S)"
+# -----------------------------------------------------
 
-# Parse the options.
-while getopts "e:f:" opt; do
+# Variable initialization.
+comment=""
+filename=""
+
+# -----------------------------------------------------
+
+# Command-line parsing
+while getopts "c:f:" opt; do
     case $opt in
-        e)
-            email=$OPTARG
+        c)
+            comment=$OPTARG
             ;;
         f)
             filename=$OPTARG
@@ -31,5 +39,24 @@ while getopts "e:f:" opt; do
     esac
 done
 
+
+echo "comment: $comment"
+
+# Check if the email is set.
+if [ -z "$comment" ]; then
+    print_usage
+    echo "** ERROR: comment  is required."
+    exit 1
+fi
+
+# Check if the filename is set.
+if [ -z "$filename" ]; then
+    print_usage
+    echo "** ERROR: filename is required."
+    exit 1
+fi
+
+# -----------------------------------------------------
+
 # Generate the key.
-ssh-keygen -t ed25519 -a 100 -C "$email" -f ~/.ssh/$filename
+ssh-keygen -t ed25519 -a 100 -C "$comment" -f ~/.ssh/$filename
