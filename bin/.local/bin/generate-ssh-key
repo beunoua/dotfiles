@@ -7,7 +7,7 @@ usage() {
     echo "Generates an ssh key using ed25519."
     echo ""
     echo "Options:"
-    echo "-e <email>           :  The email to use in the comment of the key."
+    echo "-e <email>           :  The email to use in the comment of the key (actually the whole comment section)."
     echo "-f <filename>        :  The filename to use for the key (will be wrote to ~/.ssh directory."
     exit 1
 }
