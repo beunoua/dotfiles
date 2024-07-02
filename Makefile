@@ -20,17 +20,19 @@ all: check_stow xdg_config clean-stow
 	$(STOW) -t $(HOME) $(STOW_FOLDERS)
 
 
-xdg_config:
-	mkdir -p $(XDG_CONFIG_HOME)
-
 clean-stow:
-	$(STOW) -D $(STOW_FOLDERS)
-
-check_stow:
-	@[ $(STOW) ] || ( echo "ERROR: stow not found. Please install stow"; exit 1 )
+	$(STOW) -t $(HOME) -D $(STOW_FOLDERS)
 
 
 clean: clean-stow
+
+
+xdg_config:
+	mkdir -p $(XDG_CONFIG_HOME)
+
+
+check_stow:
+	@[ $(STOW) ] || ( echo "ERROR: stow not found. Please install stow"; exit 1 )
 
 
 help:
