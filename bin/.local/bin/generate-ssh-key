@@ -40,8 +40,6 @@ while getopts "c:f:" opt; do
 done
 
 
-echo "comment: $comment"
-
 # Check if the email is set.
 if [ -z "$comment" ]; then
     print_usage
