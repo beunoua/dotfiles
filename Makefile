@@ -31,3 +31,7 @@ check_stow:
 
 
 clean: clean-stow
+
+
+help:
+	@echo "Usage: make [xdg_config|clean-stow|check_stow|clean|help]"
