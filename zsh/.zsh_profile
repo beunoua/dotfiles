@@ -15,9 +15,13 @@ source <(/usr/local/bin/starship init zsh --print-full-init)
 
 # Initialize fzf
 eval "$(fzf --zsh)"
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
 
 # Initialize zoxide (cd replacement)
 eval "$(zoxide init --cmd=cd zsh)"
+
 
 
 # Setup dircolors
