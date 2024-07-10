@@ -14,29 +14,19 @@ alias my="sudo chown `id -u`:`id -g`"
 
 # ls aliases.
 
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-    lsflags="--color --group-directories-first"
-else # OS X `ls`
-    lsflags="-G"
-fi
-
-alias ls="command ls ${lsflags}"
-alias l="ls -lAh"
-alias ll="ls -lh"
+alias ls="eza --color=always --group-directories-first"
 alias l1="ls -1"
-alias llx="ll -X"
-alias lcrt="ll -crt"
+alias ll="ls --long --icons=always"
+alias la="ll -a"
 
 # When using tree, group directories first
-alias tree="tree --dirsfirst"
+alias tree="ll --tree"
 
 # grep aliases.
 alias grep="grep --color"
 alias egrep="egrep --color"
 
 # Application aliases.
-alias R="R --vanilla"
 alias vmdtext="vmd -dispdev text"
 alias vmd="vmd -size 1000 1000 -nt"
 
@@ -90,3 +80,5 @@ alias glog="git log"
 
 # Other aliases
 alias rl="readlink -e"
+
+alias cat='bat --paging=never'

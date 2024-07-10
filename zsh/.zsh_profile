@@ -13,5 +13,12 @@ done
 # Initialize starship prompt.
 source <(/usr/local/bin/starship init zsh --print-full-init)
 
+# Initialize fzf
+eval "$(fzf --zsh)"
+
+# Initialize zoxide (cd replacement)
+eval "$(zoxide init --cmd=cd zsh)"
+
+
 # Setup dircolors
 setup_dircolors
