@@ -16,6 +16,7 @@ alias my="sudo chown `id -u`:`id -g`"
 alias ls="eza --color=always --group-directories-first"
 alias l1="ls -1"
 alias ll="ls --long --icons=always"
+alias l="ll"
 alias la="ll -a"
 
 # When using tree, group directories first
