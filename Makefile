@@ -1,5 +1,5 @@
 
-STOW_FOLDERS := bin git personal starship zsh nvim oh-my-zsh
+STOW_FOLDERS := git personal starship zsh nvim oh-my-zsh
 STOW ?= $(shell command -v stow)
 
 
