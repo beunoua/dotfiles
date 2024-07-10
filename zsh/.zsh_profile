@@ -7,6 +7,19 @@ for i in $(find -L $XDG_CONFIG_PERSONAL ! -name 'dircolors' |sort); do
     source $i
 done
 
+# Better history.
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=5000
+SAVEHIST=1000
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt share_history
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+
+
 # Uses $HOME/.extra if it exists
 [[ -e $HOME/.extra ]] && source $HOME/.extra
 
