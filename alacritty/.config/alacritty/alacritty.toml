@@ -11,3 +11,4 @@ blur = true
 
 [font]
 normal.family = "MesloLGS Nerd Font Mono"
+size = 14
