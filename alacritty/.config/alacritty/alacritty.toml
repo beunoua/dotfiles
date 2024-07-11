@@ -12,3 +12,8 @@ blur = true
 
 [font]
 normal.family = "MesloLGS Nerd Font Mono"
+
+[keyboard]
+bindings = [
+{ key = "Return", mods = "Command", action = "CreateNewWindow" }
+]
