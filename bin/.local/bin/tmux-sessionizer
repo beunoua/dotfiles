@@ -5,23 +5,19 @@ SCAN_DIRECTORIES=("$HOME/Projects/ $HOME/Projects/Development $HOME/Projects/Per
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find $SCAN_DIRECTORIES -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find $SCAN_DIRECTORIES -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf)
 fi
 
-if [[ -z $selected ]]; then
-    exit 0
-fi
+# Nothing selected: exits.
+[[ -z $selected ]] && exit 0
 
 selected_name=$(basename "$selected" | tr . _)
-tmux_running=$(pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
-    exit 0
-fi
+# Already inside tmux: switch to the selected session.
+[[ -n $TMUX ]] && tmux switch-client -t $selected_name && exit 0
 
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
-fi
+# Not inside a session but session already exists: attach the session.
+tmux has-session -t=$selected_name 2> /dev/null && tmux attach -t $selected_name && exit 0
 
-tmux attach -t $selected_name
+# Not inside a session and session does not exist: create it.
+tmux new-session -s $selected_name -c $selected
