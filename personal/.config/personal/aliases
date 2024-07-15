@@ -83,3 +83,9 @@ alias vim="nvim"
 alias rl="readlink -e"
 alias cat="bat --paging=never"
 alias lg="lazygit"
+
+# Tmux aliases
+alias t="tmux"
+alias tls="tmux list-sessions"
+alias tks="tmux kill-session"
+alias ts="tmux-sessionizer"
