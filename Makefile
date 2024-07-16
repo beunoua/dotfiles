@@ -1,5 +1,4 @@
-
-STOW_FOLDERS := alacritty git personal starship zsh nvim oh-my-zsh
+STOW_FOLDERS := alacritty bin git ohmyzsh nvim personal starship tmux zsh 
 STOW ?= $(shell command -v stow)
 
 

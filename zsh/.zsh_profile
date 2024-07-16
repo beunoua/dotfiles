@@ -7,11 +7,35 @@ for i in $(find -L $XDG_CONFIG_PERSONAL ! -name 'dircolors' |sort); do
     source $i
 done
 
+# Better history.
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=5000
+SAVEHIST=1000
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt share_history
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+
+
 # Uses $HOME/.extra if it exists
 [[ -e $HOME/.extra ]] && source $HOME/.extra
 
 # Initialize starship prompt.
 source <(/usr/local/bin/starship init zsh --print-full-init)
+
+# Initialize fzf
+eval "$(fzf --zsh)"
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+# Initialize zoxide (cd replacement)
+eval "$(zoxide init --cmd=cd zsh)"
+
+
 
 # Setup dircolors
 setup_dircolors

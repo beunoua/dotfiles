@@ -12,7 +12,22 @@
 	rebase = false
 
 [core]
-    pager = LESS=FRSXQ less
+    pager = delta
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
 
 [color]
     branch = auto
@@ -61,9 +76,6 @@
         git push origin --delete "$@"; \
         git branch -d "$@"; \
     }; f"
-
-[merge]
-    tool = opendiff
 
 [url "https://gitlab.galaxy.ibpc.fr/"]
   insteadOf = "glab:"

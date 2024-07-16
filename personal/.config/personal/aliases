@@ -13,30 +13,20 @@ alias rle="readlink -e"
 alias my="sudo chown `id -u`:`id -g`"
 
 # ls aliases.
-
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-    lsflags="--color --group-directories-first"
-else # OS X `ls`
-    lsflags="-G"
-fi
-
-alias ls="command ls ${lsflags}"
-alias l="ls -lAh"
-alias ll="ls -lh"
+alias ls="eza --color=always --group-directories-first"
 alias l1="ls -1"
-alias llx="ll -X"
-alias lcrt="ll -crt"
+alias ll="ls --long --icons=always"
+alias l="ll"
+alias la="ll -a"
 
 # When using tree, group directories first
-alias tree="tree --dirsfirst"
+alias tree="ll --tree"
 
 # grep aliases.
 alias grep="grep --color"
 alias egrep="egrep --color"
 
 # Application aliases.
-alias R="R --vanilla"
 alias vmdtext="vmd -dispdev text"
 alias vmd="vmd -size 1000 1000 -nt"
 
@@ -45,10 +35,7 @@ if [[ "Darwin" =~ `uname -s` ]]; then
     alias hidedt="defaults write com.apple.finder CreateDesktop false; killall Finder"
     alias showdt="defaults write com.apple.finder CreateDesktop true; killall Finder"
     alias umount="diskutil eject"
-    alias rstud="open -a RStudio"
-    alias skim="open -a Skim"
     alias du="ncdu -x --color dark --exclude .git"
-    alias du1="\du -h -d1"
 # Linux specific aliases.
 else
     alias du="ncdu -x -r --exclude .git"
@@ -88,5 +75,18 @@ alias gh="git head"
 alias gmv="git mv"
 alias glog="git log"
 
+# vi aliases
+alias vi="nvim"
+alias vim="nvim"
+
 # Other aliases
 alias rl="readlink -e"
+alias cat="bat --paging=never"
+alias lg="lazygit"
+
+# Tmux aliases
+alias t="tmux"
+alias ts="tmux-sessionizer"
+alias tls="tmux list-sessions"
+alias tks="tmux kill-session -t"
+alias ta="tmux attach-session -t"
