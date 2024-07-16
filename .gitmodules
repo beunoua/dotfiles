@@ -1,6 +1,3 @@
 [submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
 	url = git@github.com:beunoua/init.lua.git
-[submodule "ohmyzsh/.oh-my-zsh"]
-	path = ohmyzsh/.oh-my-zsh
-	url = git@github.com:ohmyzsh/ohmyzsh.git
