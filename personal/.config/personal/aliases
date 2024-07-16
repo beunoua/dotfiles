@@ -86,6 +86,7 @@ alias lg="lazygit"
 
 # Tmux aliases
 alias t="tmux"
-alias tls="tmux list-sessions"
-alias tks="tmux kill-session"
 alias ts="tmux-sessionizer"
+alias tls="tmux list-sessions"
+alias tks="tmux kill-session -t"
+alias ta="tmux attach-session -t"
