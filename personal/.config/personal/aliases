@@ -15,7 +15,7 @@ alias my="sudo chown `id -u`:`id -g`"
 # ls aliases.
 alias ls="eza --color=always --group-directories-first"
 alias l1="ls -1"
-alias ll="ls --long --icons=always"
+alias ll="ls --long -g --icons=always"
 alias l="ll"
 alias la="ll -a"
 
