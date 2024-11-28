@@ -83,6 +83,7 @@ alias vim="nvim"
 alias rl="readlink -e"
 alias cat="bat --paging=never"
 alias lg="lazygit"
+alias grep="rg"
 
 # Tmux aliases
 alias t="tmux"
