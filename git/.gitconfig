@@ -79,7 +79,7 @@
 
 [url "https://gitlab.galaxy.ibpc.fr/"]
   insteadOf = "glab:"
-  pushInsteadOf = "https://gitlab.galaxye.ibpc.fr/"
+  pushInsteadOf = "https://gitlab.galaxy.ibpc.fr/"
 
 [url "git@github.com:"]
   insteadOf = "gh:"
