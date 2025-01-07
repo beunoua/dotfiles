@@ -77,6 +77,10 @@
         git branch -d "$@"; \
     }; f"
 
+[url "git@gitlab.galaxy.ibpc.fr:"]
+  insteadOf = "glabo:"
+  pushInsteadOf = "git://gitlab.galaxy.ibpc.fr/"
+
 [url "https://gitlab.galaxy.ibpc.fr/"]
   insteadOf = "glab:"
   pushInsteadOf = "https://gitlab.galaxy.ibpc.fr/"
