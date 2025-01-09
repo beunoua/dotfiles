@@ -82,6 +82,7 @@ alias vim="nvim"
 # Other aliases
 alias rl="readlink -e"
 alias cat="bat --paging=never"
+alias less="bat --paging=always"
 alias lg="lazygit"
 alias grep="rg"
 
