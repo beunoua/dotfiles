@@ -1,18 +1,5 @@
-STOW_FOLDERS := alacritty bin git ohmyzsh nvim personal starship tmux zsh 
+STOW_FOLDERS := alacritty git ohmyzsh nvim personal starship tmux zsh 
 STOW ?= $(shell command -v stow)
-
-
-# OS detection.
-OS := $(shell uname)
-ifeq ($(OS), Darwin)
-	OS := macos
-else ifeq ($(OS), Linux)
-	OS := linux
-else
-    $(error Unsupported operating system: $(OS))
-endif
-
-export XDG_CONFIG_HOME = $(HOME)/.config
 
 
 all: check_stow xdg_config clean-stow
