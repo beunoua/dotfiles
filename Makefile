@@ -1,6 +1,8 @@
 STOW_FOLDERS := alacritty git ohmyzsh nvim personal starship tmux zsh 
 STOW ?= $(shell command -v stow)
 
+XDG_CONFIG_HOME ?= $HOME/.config
+
 
 all: check_stow xdg_config clean-stow
 	$(STOW) -t $(HOME) $(STOW_FOLDERS)
