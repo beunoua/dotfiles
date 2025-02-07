@@ -71,7 +71,6 @@ alias gpush="git push"
 alias ginit="git init"
 alias gclone="git clone"
 alias gco="git checkout"
-alias gh="git head"
 alias gmv="git mv"
 alias glog="git log"
 
