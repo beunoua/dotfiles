@@ -13,5 +13,6 @@ normal.family = "MesloLGS Nerd Font Mono"
 [general]
 # Source local configuration
 import = [
-    "~/.config/alacritty/alacritty.local.toml"
+    "~/.config/alacritty/alacritty.local.toml",
+    "~/.config/alacritty/rose-pine.toml"
 ]
