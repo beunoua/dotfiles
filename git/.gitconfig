@@ -78,6 +78,13 @@
         git branch -d "$@"; \
     }; f"
 
+
+    goark = "!f() { \
+        git config user.name 'arkdot' && \
+        git config user.email '198597192+arkdot@users.noreply.github.com'; \
+    }; f"
+
+
 [url "git@gitlab.galaxy.ibpc.fr:"]
   insteadOf = "glabo:"
   pushInsteadOf = "git://gitlab.galaxy.ibpc.fr/"
